@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>NODEjs</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+
+<body>
+   <h3 class="title">Post Forum</h3>
+
+   <form class="form">
+      <div class="form-group ">
+         <label for="formGroupExampleInput">Post Title</label>
+         <input type="text" class="form-control" id="name" placeholder="Title">
+      </div>
+      <div class="form-group">
+         <label for="formGroupExampleInput2">Post Content</label>
+         <textarea type="text" class="form-control" id="content" placeholder="Body"></textarea>
+      </div>
+      <button type="button" onclick="post()" class="btn btn-primary">POST</button>
+   </form>
+
+   <div class="container">
+      <!-- Content here -->
+   </div>
+
+</body>
+<script src="client.js"></script>
+
+</html>
