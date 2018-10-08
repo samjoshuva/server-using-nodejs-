@@ -2,6 +2,8 @@ const API_URL = "http://localhost:3000/posts";
 
 posts = {};
 
+let postsDOM = document.getElementById('posts');
+
 
 function post() {
    var name = document.getElementById('name').value;
@@ -11,6 +13,9 @@ function post() {
       name,
       content
    };
+   if(name === null && content === null){
+         return alert("enter Values brfore you post something")
+   }
    fetch(API_URL, {
       method: 'POST',
       body: JSON.stringify(post),
@@ -48,12 +53,18 @@ function getPosts() {
    fetch(API_URL)
       .then(response => response.json())
       .then(posts => {
-         console.log(posts);
+         render(posts);
       });
 }
 
 
 
-function render() {
+ function render(posts) {
+      
+      postsDOM.innerHTML = '';
+      posts.forEach( async element => {
+            await (postsDOM.innerHTML += '<div class="card"><div class="card-body"><h4 class="card-title">'+ element.name  +'</h4><p class="card-text">'+element.content+'</p></div></div>');
+      });
+      
 
 }
