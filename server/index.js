@@ -57,3 +57,5 @@ var server = app.listen(3000, function () {
 async function getPosts() {
   posts = await Post.find();
 }
+
+
