@@ -4,6 +4,10 @@ posts = {};
 
 let postsDOM = document.getElementById('posts');
 
+setInterval(()=>{
+      getPosts();
+},2000)
+
 
 function post() {
    var name = document.getElementById('name').value;
@@ -44,7 +48,7 @@ function post() {
 
 }
 
-getPosts();
+
 
 
 
@@ -60,7 +64,7 @@ function getPosts() {
 
 
  function render(posts) {
-      
+      posts.reverse();
       postsDOM.innerHTML = '';
       posts.forEach( async element => {
             await (postsDOM.innerHTML += '<div class="card"><div class="card-body"><h4 class="card-title">'+ element.name  +'</h4><p class="card-text">'+element.content+'</p></div></div>');

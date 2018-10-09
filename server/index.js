@@ -11,9 +11,9 @@ const postSchema = new mongoose.Schema({
   name: String,
   content: String
 });
-
+const Post = mongoose.model('Post', postSchema);
 async function createPost(name, content) {
-  const Post = mongoose.model('Post', postSchema);
+  
   const post = new Post({
     name: name,
     content: content
@@ -28,12 +28,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-var posts = [{
-  name: "post1",
-  content: "An awesome post"
-}];
+var posts = [];
+
+
 
 app.get('/posts', (req, res) => {
+  getPosts();
   res.json(posts);
 });
 app.post('/posts/', (req, res) => {
@@ -53,3 +53,7 @@ app.post('/posts/', (req, res) => {
 var server = app.listen(3000, function () {
   console.log("listen to port 3000");
 });
+
+async function getPosts() {
+  posts = await Post.find();
+}
